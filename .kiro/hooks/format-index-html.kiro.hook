@@ -1,0 +1,18 @@
+{
+  "enabled": true,
+  "name": "Format index.html on Save",
+  "description": "When index.html is saved, automatically format the HTML, CSS, and JavaScript code for consistency and readability.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "index.html"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "The file index.html was just saved. Please format the HTML structure, CSS styles, and JavaScript code in this file for consistency and readability. Ensure proper indentation, spacing, and code organization throughout the file."
+  },
+  "workspaceFolderName": "CareerPath",
+  "shortName": "format-index-html"
+}

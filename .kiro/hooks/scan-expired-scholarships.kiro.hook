@@ -1,0 +1,15 @@
+{
+  "enabled": true,
+  "name": "Scan Expired Scholarships",
+  "description": "When triggered manually, scans all entries in scholarships.json and lists any scholarships whose deadline has already passed so they can be removed or updated.",
+  "version": "1",
+  "when": {
+    "type": "userTriggered"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Read the scholarships.json file and check each scholarship's deadline against today's date (June 7, 2026). List all scholarships whose deadline has already passed, including their name and deadline date, so they can be reviewed for removal or update."
+  },
+  "workspaceFolderName": "CareerPath",
+  "shortName": "scan-expired-scholarships"
+}

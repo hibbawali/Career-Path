@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareerPath — Find Your Scholarship. Build Your Future. | Pakistan Scholarship Finder 2026</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <style>
+    /* ── Reset & Base ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:      #1B3A4B;
+      --blue-mid:  #24526A;
+      --blue-lite: #2D6A8A;
+      --red:       #E74C3C;
+      --red-dark:  #C0392B;
+      --green:     #27AE60;
+      --amber:     #E67E22;
+      --grey-bg:   #F0F4F8;
+      --card-bg:   #FFFFFF;
+      --text:      #1A1A2E;
+      --muted:     #6B7280;
+      --border:    #D1D9E0;
+      --shadow:    0 2px 12px rgba(0,0,0,.10);
+      --radius:    10px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--grey-bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── Header ────────────────────────────────────────────────────── */
+    header {
+      background: var(--blue);
+      color: #fff;
+      padding: 0 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,.3);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.4rem;
+      height: 2.4rem;
+      background: linear-gradient(135deg, #5DADE2 0%, #2D6A8A 100%);
+      border-radius: 10px;
+      font-size: 1.25rem;
+      line-height: 1;
+      box-shadow: 0 2px 8px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.15);
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #fff;
+      line-height: 1.1;
+    }
+
+    .brand-name span { color: #5DADE2; }
+
+    .brand-tag {
+      font-size: 0.78rem;
+      color: #A8C8E0;
+      letter-spacing: 0.3px;
+      margin-top: 2px;
+    }
+
+    .brand-verified {
+      font-size: 0.7rem;
+      color: rgba(168,200,224,.65);
+      margin-top: 3px;
+      letter-spacing: 0.2px;
+    }
+
+    .header-stats {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .stat-pill {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 20px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.8rem;
+      color: #C9DFF0;
+      white-space: nowrap;
+    }
+
+    .stat-pill strong { color: #fff; }
+
+    /* ── Hero strip ────────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, var(--blue-mid) 0%, var(--blue-lite) 100%);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero p { color: #B8D4E8; font-size: 0.95rem; margin-bottom: 1.5rem; }
+
+    /* ── Search bar ────────────────────────────────────────────────── */
+    .search-wrap {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    #searchInput {
+      width: 100%;
+      padding: 0.85rem 1rem 0.85rem 3rem;
+      border-radius: 50px;
+      border: none;
+      font-size: 1rem;
+      outline: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    #clearSearch {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 1.2rem;
+      display: none;
+      line-height: 1;
+    }
+
+    /* ── Main layout ───────────────────────────────────────────────── */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    /* ── Filter Panel ──────────────────────────────────────────────── */
+    .filters-section {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.5rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.5rem;
+    }
+
+    .filters-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      gap: 0.5rem;
+    }
+
+    .filters-header h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    #resetFilters {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.3rem 0.8rem;
+      cursor: pointer;
+      font-size: 0.8rem;
+      color: var(--muted);
+      transition: all .2s;
+    }
+
+    #resetFilters:hover { background: var(--grey-bg); color: var(--text); }
+
+    .filters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .filter-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.35rem;
+    }
+
+    .filter-group select,
+    .filter-group input[type="number"],
+    .filter-group input[type="text"] {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      background: var(--grey-bg);
+      color: var(--text);
+      outline: none;
+      transition: border-color .2s;
+    }
+
+    .filter-group select:focus,
+    .filter-group input:focus { border-color: var(--blue-lite); }
+
+    /* ── Results bar ───────────────────────────────────────────────── */
+    .results-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .results-count {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .results-count strong { color: var(--text); }
+
+    .sort-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sort-group label { font-size: 0.8rem; color: var(--muted); }
+
+    #sortSelect {
+      padding: 0.35rem 0.6rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      background: var(--card-bg);
+      color: var(--text);
+      outline: none;
+    }
+
+    /* ── Scholarship Grid ──────────────────────────────────────────── */
+    #scholarshipGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    @media (max-width: 1023px) {
+      #scholarshipGrid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 639px) {
+      #scholarshipGrid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Scholarship Card ──────────────────────────────────────────── */
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+      border: 1px solid rgba(0,0,0,.05);
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(0,0,0,.15);
+    }
+
+    .card-top {
+      padding: 1rem 1rem 0.6rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .card-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.5rem;
+      padding-right: 5.5rem;  /* room for bookmark + whatsapp buttons */
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.18rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .badge-country {
+      background: #EBF5FB;
+      color: #1A5276;
+      border: 1px solid #AED6F1;
+    }
+
+    .badge-degree {
+      background: #F0F9F0;
+      color: #1E8449;
+      border: 1px solid #A9DFBF;
+    }
+
+    .badge-closing {
+      background: var(--red);
+      color: #fff;
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.75; }
+    }
+
+    .badge-status-open    { background: #EAFAF1; color: #196F3D; border: 1px solid #A9DFBF; }
+    .badge-status-check   { background: #FEF9E7; color: #7D6608; border: 1px solid #F9E79F; }
+    .badge-status-expected { background: #EBF5FB; color: #1A5276; border: 1px solid #AED6F1; }
+    .badge-status-opens   { background: #F5EEF8; color: #6C3483; border: 1px solid #D7BDE2; }
+    .badge-status-default { background: #F0F0F0; color: #555; border: 1px solid #ddd; }
+
+    .card-name {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.35;
+    }
+
+    .card-provider {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .card-body {
+      padding: 0.75rem 1rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .card-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.83rem;
+    }
+
+    .card-row-icon {
+      flex-shrink: 0;
+      width: 16px;
+      color: var(--blue-lite);
+      margin-top: 1px;
+    }
+
+    .card-row-label {
+      color: var(--muted);
+      font-weight: 600;
+      min-width: 60px;
+      flex-shrink: 0;
+    }
+
+    .card-row-val {
+      color: var(--text);
+      flex: 1;
+    }
+
+    .card-row-val.deadline-urgent { color: var(--red); font-weight: 700; }
+
+    .card-requirements {
+      font-size: 0.78rem;
+      color: var(--muted);
+      background: var(--grey-bg);
+      border-radius: 6px;
+      padding: 0.5rem 0.65rem;
+      margin-top: 0.2rem;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-footer {
+      padding: 0.75rem 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .btn-apply {
+      display: block;
+      width: 100%;
+      padding: 0.65rem 1rem;
+      background: var(--blue);
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 7px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background .2s, transform .15s;
+    }
+
+    .btn-apply:hover {
+      background: var(--blue-mid);
+      transform: scale(1.01);
+    }
+
+    .btn-apply-disabled {
+      background: var(--muted);
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    .btn-apply-disabled:hover {
+      background: var(--muted);
+      transform: none;
+    }
+
+    /* ── Apply Now fallback notice ─────────────────────────────────── */
+    .apply-fallback {
+      display: none;
+      margin-top: 0.55rem;
+      font-size: 0.76rem;
+      color: var(--muted);
+      line-height: 1.45;
+      background: var(--grey-bg);
+      border-radius: 6px;
+      padding: 0.45rem 0.65rem;
+      border-left: 3px solid var(--amber);
+    }
+
+    .apply-fallback.visible { display: block; }
+
+    .apply-fallback a {
+      color: var(--blue-lite);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* ── Empty state ───────────────────────────────────────────────── */
+    #emptyState {
+      display: none;
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+    }
+
+    #emptyState svg { margin-bottom: 1rem; opacity: .4; }
+    #emptyState p { font-size: 1rem; }
+
+    /* ── Error state ───────────────────────────────────────────────── */
+    #errorState {
+      display: none;
+      background: #FDECEA;
+      border: 1px solid #F5B7B1;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      color: var(--red-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Eligibility Analyzer ──────────────────────────────────────── */
+    .analyzer-section {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-top: 2.5rem;
+      overflow: hidden;
+    }
+
+    .analyzer-header {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-lite) 100%);
+      padding: 1.5rem;
+      color: #fff;
+    }
+
+    .analyzer-header h2 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 0.3rem;
+    }
+
+    .analyzer-header p { font-size: 0.88rem; color: #B8D4E8; }
+
+    .analyzer-body { padding: 1.5rem; }
+
+    .analyzer-form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.35rem;
+    }
+
+    .form-group input[type="number"],
+    .form-group input[type="text"],
+    .form-group select {
+      width: 100%;
+      padding: 0.55rem 0.75rem;
+      border: 1.5px solid var(--border);
+      border-radius: 7px;
+      font-size: 0.9rem;
+      background: var(--grey-bg);
+      color: var(--text);
+      outline: none;
+      transition: border-color .2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus { border-color: var(--blue-lite); background: #fff; }
+
+    .financial-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding-top: 0.3rem;
+    }
+
+    .financial-wrap input[type="checkbox"] {
+      width: 18px; height: 18px; accent-color: var(--blue);
+    }
+
+    .financial-wrap label {
+      font-size: 0.88rem;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .btn-analyze {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.7rem 1.8rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s;
+    }
+
+    .btn-analyze:hover { background: var(--blue-mid); }
+
+    /* ── Gap Report ────────────────────────────────────────────────── */
+    #gapReport {
+      margin-top: 1.5rem;
+      display: none;
+    }
+
+    .report-intro {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .report-section { margin-bottom: 1.5rem; }
+
+    .report-section-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .report-section-title .dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-green  { background: var(--green); }
+    .dot-amber  { background: var(--amber); }
+    .dot-red    { background: var(--red); }
+
+    .report-list { display: flex; flex-direction: column; gap: 0.6rem; }
+
+    .report-item {
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      font-size: 0.85rem;
+    }
+
+    .report-item-qualified { background: #EAFAF1; border-left: 4px solid var(--green); }
+    .report-item-close     { background: #FEF9E7; border-left: 4px solid var(--amber); }
+    .report-item-no        { background: #FDECEA; border-left: 4px solid var(--red); }
+
+    .report-item strong { font-weight: 700; color: var(--text); }
+
+    .report-item .gap-note {
+      color: var(--red-dark);
+      font-weight: 600;
+    }
+
+    .report-item .close-note { color: #7D6608; font-weight: 600; }
+    .report-item .qualify-note { color: #196F3D; font-weight: 600; }
+
+    .report-item .meta {
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .analyzer-prompt {
+      text-align: center;
+      color: var(--muted);
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+
+    /* ── Footer ────────────────────────────────────────────────────── */
+    footer {
+      background: var(--blue);
+      color: #A8C8E0;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      font-size: 0.83rem;
+    }
+
+    footer strong { color: #fff; }
+
+    /* ── Loading spinner ───────────────────────────────────────────── */
+    #loadingState {
+      text-align: center;
+      padding: 3rem;
+      color: var(--muted);
+    }
+
+    .spinner {
+      width: 40px; height: 40px;
+      border: 4px solid var(--border);
+      border-top-color: var(--blue);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Tabs (for mobile layout of sections) ─────────────────────── */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem 0 1rem;
+    }
+
+    .section-divider hr { flex: 1; border: none; border-top: 2px solid var(--border); }
+
+    .section-divider span {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--blue);
+      white-space: nowrap;
+    }
+
+    /* ── Responsive overrides ──────────────────────────────────────── */
+    @media (max-width: 639px) {
+      .header-inner { flex-wrap: wrap; }
+      .header-stats { display: none; }
+      .brand-name { font-size: 1.4rem; }
+      .brand-logo { width: 2rem; height: 2rem; font-size: 1rem; border-radius: 8px; }
+      .filters-grid { grid-template-columns: 1fr 1fr; }
+      .analyzer-form { grid-template-columns: 1fr 1fr; }
+      .hero h2 { font-size: 1.15rem; }
+    }
+
+    @media (max-width: 400px) {
+      .filters-grid { grid-template-columns: 1fr; }
+      .analyzer-form { grid-template-columns: 1fr; }
+    }
+
+    /* ── Countdown badges ──────────────────────────────────────────── */
+    .countdown-badge {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      padding: 0.18rem 0.55rem;
+    }
+
+    .countdown-red    { background: #E74C3C; color: #fff; animation: pulse 1.8s infinite; }
+    .countdown-orange { background: #E67E22; color: #fff; }
+    .countdown-green  { background: #27AE60; color: #fff; }
+
+    /* ── Card actions row (bookmark + whatsapp) ────────────────────── */
+    .card-actions {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .btn-bookmark {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.22rem 0.45rem;
+      cursor: pointer;
+      font-size: 0.85rem;
+      line-height: 1;
+      color: var(--muted);
+      transition: background .15s, border-color .15s, transform .1s;
+    }
+
+    .btn-bookmark:hover { background: var(--grey-bg); border-color: var(--blue-lite); }
+    .btn-bookmark.bookmarked { background: #FFF3CD; border-color: #E8A000; }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: #25D366;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 0.22rem 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background .15s;
+      white-space: nowrap;
+    }
+
+    .btn-whatsapp:hover { background: #1DAE55; }
+
+    /* ── Saved filter button ───────────────────────────────────────── */
+    .saved-filter-btn {
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all .2s;
+      white-space: nowrap;
+    }
+
+    .saved-filter-btn:hover { border-color: var(--blue-lite); color: var(--blue); }
+    .saved-filter-btn.active { background: #FFF3CD; border-color: #E8A000; color: #7D5A00; }
+
+    .saved-filter-btn .saved-count {
+      background: #E8A000;
+      color: #fff;
+      border-radius: 20px;
+      padding: 0.05rem 0.45rem;
+      font-size: 0.72rem;
+      font-weight: 800;
+      display: none;
+    }
+
+    .saved-filter-btn.has-saves .saved-count { display: inline; }
+
+    /* ── Match score bar ───────────────────────────────────────────── */
+    .match-score-bar {
+      background: var(--grey-bg);
+      border-radius: 7px;
+      padding: 0.55rem 0.75rem 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .match-score-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.35rem;
+    }
+
+    .match-score-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .match-score-value {
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .match-high { color: var(--green); }
+    .match-mid  { color: var(--amber); }
+    .match-low  { color: var(--red); }
+
+    .match-score-track {
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 0.45rem;
+    }
+
+    .match-score-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width .4s ease;
+    }
+
+    .match-reason {
+      font-size: 0.76rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* ── Bookmarked card highlight ─────────────────────────────────── */
+    .card.bookmarked {
+      border: 2px solid #E8A000;
+      box-shadow: 0 2px 12px rgba(232,160,0,.18);
+    }
+
+    /* ── Scroll to top ─────────────────────────────────────────────── */
+    #scrollTop {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 42px; height: 42px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,.25);
+      transition: background .2s;
+      z-index: 50;
+    }
+
+    #scrollTop:hover { background: var(--blue-mid); }
+
+    /* ── Top announcement banner ───────────────────────────────────── */
+    .top-banner {
+      background: rgba(10, 25, 35, 0.72);
+      color: #fff;
+      text-align: center;
+      font-size: 0.875rem;
+      padding: 0.625rem 1.5rem;
+      letter-spacing: 0.15px;
+      line-height: 1.5;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ─────────────────────────────────────────────────────── -->
+<header>
+  <div class="top-banner">
+    You work hard for your grades. You deserve to know every scholarship you qualify for. CareerPath finds them for you — in seconds.
+  </div>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-lockup">
+        <div class="brand-logo" role="img" aria-label="CareerPath logo">🎓</div>
+        <div class="brand-name">Career<span>Path</span></div>
+      </div>
+      <div class="brand-tag">Find Your Scholarship. Build Your Future.</div>
+      <div class="brand-verified">Data last verified: June 2026</div>
+    </div>
+    <div class="header-stats" id="headerStats">
+      <div class="stat-pill" id="statTotal"><strong>—</strong> Scholarships</div>
+      <div class="stat-pill" id="statCountries"><strong>—</strong> Countries</div>
+      <div class="stat-pill" id="statFullyFunded"><strong>—</strong> Fully Funded</div>
+      <div class="stat-pill" id="statUrgent"><strong>—</strong> Closing Soon</div>
+    </div>
+  </div>
+</header>
+
+<!-- ── Hero / Search ──────────────────────────────────────────────── -->
+<div class="hero">
+  <h2>Discover Scholarships Matched for You</h2>
+  <p>Search across international &amp; local scholarships. Analyze your eligibility in seconds.</p>
+  <div class="search-wrap">
+    <svg class="search-icon" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+    </svg>
+    <input type="text" id="searchInput" placeholder="Search by name, provider, or country…" autocomplete="off" />
+    <button id="clearSearch" title="Clear search" aria-label="Clear search">&#x2715;</button>
+  </div>
+</div>
+
+<!-- ── Main Content ───────────────────────────────────────────────── -->
+<main>
+
+  <!-- Error state -->
+  <div id="errorState">
+    <strong>⚠ Could not load scholarship data.</strong>
+    <p style="margin-top:.4rem;font-size:.9rem;">Please make sure <code>scholarships.json</code> is in the same folder as this page and you are running it via a local server or file:// with CORS enabled.</p>
+  </div>
+
+  <!-- Filter Panel -->
+  <div class="filters-section">
+    <div class="filters-header">
+      <h3>
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L13 13.414V19a1 1 0 01-.553.894l-4 2A1 1 0 017 21v-7.586L3.293 6.707A1 1 0 013 6V4z"/></svg>
+        Filter Scholarships
+      </h3>
+      <button id="resetFilters">Reset All</button>
+    </div>
+    <div class="filters-grid">
+      <div class="filter-group">
+        <label for="filterDegree">Degree Level</label>
+        <select id="filterDegree">
+          <option value="">All Degrees</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filterCountry">Country</label>
+        <select id="filterCountry">
+          <option value="">All Countries</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filterType">Type</label>
+        <select id="filterType">
+          <option value="">All Types</option>
+          <option value="international">International</option>
+          <option value="local">Local</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filterCGPA">My CGPA ≥</label>
+        <input type="number" id="filterCGPA" min="0" max="4" step="0.1" placeholder="e.g. 3.0" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Results bar -->
+  <div class="results-bar">
+    <div style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;">
+      <div class="results-count" id="resultsCount">Loading…</div>
+      <button class="saved-filter-btn" id="savedFilterBtn" title="Show only bookmarked scholarships">
+        🔖 Saved <span class="saved-count" id="savedCount">0</span>
+      </button>
+    </div>
+    <div class="sort-group">
+      <label for="sortSelect">Sort by:</label>
+      <select id="sortSelect">
+        <option value="deadline">Deadline (earliest)</option>
+        <option value="name">Name (A–Z)</option>
+        <option value="cgpa">Min CGPA (low)</option>
+        <option value="country">Country</option>
+        <option value="match">Match Score</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Loading state -->
+  <div id="loadingState">
+    <div class="spinner"></div>
+    <p>Loading scholarships…</p>
+  </div>
+
+  <!-- Scholarship Grid -->
+  <div id="scholarshipGrid"></div>
+
+  <!-- Empty state -->
+  <div id="emptyState">
+    <svg width="64" height="64" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+      <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v3m0 3h.01"/>
+    </svg>
+    <p>No scholarships match your search or filters.</p>
+    <p style="margin-top:.5rem;font-size:.85rem;">Try adjusting your filters or search terms.</p>
+  </div>
+
+  <!-- ── Eligibility Gap Analyzer ─────────────────────────────────── -->
+  <div class="section-divider">
+    <hr /><span>🎯 Eligibility Gap Analyzer</span><hr />
+  </div>
+
+  <div class="analyzer-section">
+    <div class="analyzer-header">
+      <h2>Eligibility Gap Analyzer</h2>
+      <p>Enter your academic profile and instantly see which scholarships you qualify for — and exactly what it takes to close the gap.</p>
+    </div>
+    <div class="analyzer-body">
+      <form id="analyzerForm" class="analyzer-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="aCGPA">Your CGPA</label>
+          <input type="number" id="aCGPA" min="0" max="4" step="0.01" placeholder="e.g. 3.2" />
+        </div>
+        <div class="form-group">
+          <label for="aDegree">Degree Level</label>
+          <select id="aDegree">
+            <option value="">Select…</option>
+            <option value="Undergraduate">Undergraduate</option>
+            <option value="Masters">Masters</option>
+            <option value="PhD">PhD</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="aProvince">Province / City</label>
+          <input type="text" id="aProvince" placeholder="e.g. Punjab" />
+        </div>
+        <div class="form-group">
+          <label for="aCountry">Country Preference</label>
+          <select id="aCountry">
+            <option value="">Any Country</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="aField">Field of Study</label>
+          <input type="text" id="aField" placeholder="e.g. Computer Science" />
+        </div>
+        <div class="form-group" style="display:flex;flex-direction:column;justify-content:flex-end;">
+          <label>Financial Need</label>
+          <div class="financial-wrap">
+            <input type="checkbox" id="aFinancial" />
+            <label for="aFinancial">I have financial need</label>
+          </div>
+        </div>
+      </form>
+      <button class="btn-analyze" id="btnAnalyze">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+        </svg>
+        Analyze My Eligibility
+      </button>
+
+      <!-- Gap Report -->
+      <div id="gapReport">
+        <div class="analyzer-prompt">
+          <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="margin-bottom:.5rem;opacity:.4;display:block;margin-left:auto;margin-right:auto">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+          </svg>
+          Enter your profile above to see your eligibility analysis
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── Footer ─────────────────────────────────────────────────────── -->
+<footer>
+  <strong>CareerPath</strong> — Find Your Scholarship. Build Your Future.<br />
+  <span style="font-size:.78rem;opacity:.7;margin-top:.3rem;display:block;">Data sourced from official scholarship portals. Always verify deadlines on official websites.</span>
+</footer>
+
+<!-- ── Scroll to top ───────────────────────────────────────────────── -->
+<button id="scrollTop" aria-label="Scroll to top">&#8679;</button>
+
+<!-- ── JavaScript ─────────────────────────────────────────────────── -->
+<script src="lib.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ── State ──────────────────────────────────────────────────────── */
+  let allScholarships  = [];
+  let filtered         = [];
+  let matchScores      = {};   // name → { score, reason }  populated after analysis
+  let showSavedOnly    = false;
+
+  /* ── Bookmarks (localStorage) ───────────────────────────────────── */
+  const BOOKMARK_KEY = 'careerpath_bookmarks';
+
+  function loadBookmarks() {
+    try { return new Set(JSON.parse(localStorage.getItem(BOOKMARK_KEY) || '[]')); }
+    catch(e) { return new Set(); }
+  }
+
+  function saveBookmarks(set) {
+    try { localStorage.setItem(BOOKMARK_KEY, JSON.stringify([...set])); } catch(e) {}
+  }
+
+  let bookmarks = loadBookmarks();
+
+  function toggleBookmark(name) {
+    if (bookmarks.has(name)) {
+      bookmarks.delete(name);
+    } else {
+      bookmarks.add(name);
+    }
+    saveBookmarks(bookmarks);
+    updateSavedButton();
+    // Update classes on any rendered instance of this card without full re-render
+    document.querySelectorAll('.btn-bookmark[data-name="' + name.replace(/"/g, '&quot;') + '"]').forEach(btn => {
+      const card = btn.closest('.card');
+      const isNow = bookmarks.has(name);
+      btn.title = isNow ? 'Remove bookmark' : 'Bookmark this scholarship';
+      btn.setAttribute('aria-label', btn.title);
+      btn.classList.toggle('bookmarked', isNow);
+      if (card) card.classList.toggle('bookmarked', isNow);
+    });
+    // If in saved-only mode and we just removed a bookmark, re-render
+    if (showSavedOnly) applyFiltersAndSearch();
+  }
+
+  function updateSavedButton() {
+    const n = bookmarks.size;
+    savedFilterBtn.classList.toggle('has-saves', n > 0);
+    savedFilterBtn.classList.toggle('active', showSavedOnly);
+    savedCountEl.textContent = n;
+  }
+
+  /* ── DOM refs ───────────────────────────────────────────────────── */
+  const grid            = document.getElementById('scholarshipGrid');
+  const emptyState      = document.getElementById('emptyState');
+  const loadingState    = document.getElementById('loadingState');
+  const errorState      = document.getElementById('errorState');
+  const resultsCount    = document.getElementById('resultsCount');
+  const searchInput     = document.getElementById('searchInput');
+  const clearBtn        = document.getElementById('clearSearch');
+  const filterDegree    = document.getElementById('filterDegree');
+  const filterCountry   = document.getElementById('filterCountry');
+  const filterType      = document.getElementById('filterType');
+  const filterCGPA      = document.getElementById('filterCGPA');
+  const sortSelect      = document.getElementById('sortSelect');
+  const resetBtn        = document.getElementById('resetFilters');
+  const btnAnalyze      = document.getElementById('btnAnalyze');
+  const gapReport       = document.getElementById('gapReport');
+  const scrollTopBtn    = document.getElementById('scrollTop');
+  const savedFilterBtn  = document.getElementById('savedFilterBtn');
+  const savedCountEl    = document.getElementById('savedCount');
+
+  /* ── Stat elements ──────────────────────────────────────────────── */
+  const statTotal       = document.getElementById('statTotal');
+  const statCountries   = document.getElementById('statCountries');
+  const statFullyFunded = document.getElementById('statFullyFunded');
+  const statUrgent      = document.getElementById('statUrgent');
+
+  /* ── Sort helper ────────────────────────────────────────────────── */
+  function sortFiltered() {
+    const key = sortSelect.value;
+    filtered.sort((a, b) => {
+      if (key === 'match') {
+        const sa = matchScores[a.name] ? matchScores[a.name].score : -1;
+        const sb = matchScores[b.name] ? matchScores[b.name].score : -1;
+        return sb - sa;  // highest first
+      }
+      if (key === 'deadline') {
+        const da = parseDeadline(a.deadline), db = parseDeadline(b.deadline);
+        if (!da && !db) return 0;
+        if (!da) return 1;
+        if (!db) return -1;
+        return da - db;
+      }
+      if (key === 'name')    return a.name.localeCompare(b.name);
+      if (key === 'cgpa')    return (a.minCGPA || 0) - (b.minCGPA || 0);
+      if (key === 'country') return a.country.localeCompare(b.country);
+      return 0;
+    });
+  }
+
+  /* ── Render grid ────────────────────────────────────────────────── */
+  function renderGrid(scholarships) {
+    if (scholarships.length === 0) {
+      grid.innerHTML = '';
+      emptyState.style.display = 'block';
+      return;
+    }
+    emptyState.style.display = 'none';
+    grid.innerHTML = scholarships.map(s => {
+      const ms = matchScores[s.name];
+      return renderCard(s, {
+        matchScore:  ms ? ms.score   : undefined,
+        matchReason: ms ? ms.reason  : undefined,
+        bookmarked:  bookmarks.has(s.name)
+      });
+    }).join('');
+
+    // Wire bookmark click handlers
+    grid.querySelectorAll('.btn-bookmark').forEach(btn => {
+      btn.addEventListener('click', () => toggleBookmark(btn.dataset.name));
+    });
+
+    // Wire Apply Now click handlers — show fallback notice after click
+    grid.querySelectorAll('a.btn-apply').forEach(link => {
+      link.addEventListener('click', function () {
+        const notice = this.closest('.card-footer').querySelector('.apply-fallback');
+        if (notice) notice.classList.add('visible');
+      });
+    });
+  }
+
+  /* ── Filter + search logic ──────────────────────────────────────── */
+  function applyFiltersAndSearch() {
+    const query   = searchInput.value.trim().toLowerCase();
+    const degree  = filterDegree.value;
+    const country = filterCountry.value;
+    const type    = filterType.value;
+    const cgpa    = parseFloat(filterCGPA.value) || 0;
+
+    filtered = applyFilters(allScholarships, { query, degree, country, type, cgpa });
+
+    if (showSavedOnly) {
+      filtered = filtered.filter(s => bookmarks.has(s.name));
+    }
+
+    sortFiltered();
+    renderGrid(filtered);
+    updateResultsCount();
+  }
+
+  function updateResultsCount() {
+    if (filtered.length === 0) {
+      resultsCount.innerHTML = '<strong>0</strong> scholarships found';
+    } else {
+      resultsCount.innerHTML = `Showing <strong>${filtered.length}</strong> of <strong>${allScholarships.length}</strong> scholarships`;
+    }
+  }
+
+  function resetFilters() {
+    filterDegree.value  = '';
+    filterCountry.value = '';
+    filterType.value    = '';
+    filterCGPA.value    = '';
+    searchInput.value   = '';
+    clearBtn.style.display = 'none';
+    showSavedOnly = false;
+    updateSavedButton();
+    applyFiltersAndSearch();
+  }
+
+  /* ── Populate filter dropdowns ──────────────────────────────────── */
+  function populateFilterDropdowns(data) {
+    const degreeSet = new Set();
+    getUniqueSortedValues(data, 'degree').forEach(raw => {
+      raw.split('/').forEach(d => {
+        const t = d.trim();
+        if (t) degreeSet.add(t);
+      });
+    });
+    [...degreeSet].sort().forEach(d => {
+      const opt = document.createElement('option');
+      opt.value = d; opt.textContent = d;
+      filterDegree.appendChild(opt);
+    });
+
+    getUniqueSortedValues(data, 'country').forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c; opt.textContent = c;
+      filterCountry.appendChild(opt);
+
+      const opt2 = document.createElement('option');
+      opt2.value = c; opt2.textContent = c;
+      document.getElementById('aCountry').appendChild(opt2);
+    });
+  }
+
+  const populateFilters = populateFilterDropdowns;
+
+  /* ── Enhanced header stats ──────────────────────────────────────── */
+  function updateHeaderStats(scholarships) {
+    const total       = scholarships.length;
+    const countries   = new Set(scholarships.map(s => s.country)).size;
+    const fullyFunded = scholarships.filter(s =>
+      s.funding && s.funding.toLowerCase().includes('full')
+    ).length;
+    const urgent      = scholarships.filter(s => isClosingSoon(s.deadline, s.status)).length;
+
+    statTotal.innerHTML       = `<strong>${total}</strong> Scholarships`;
+    statCountries.innerHTML   = `<strong>${countries}</strong> Countries`;
+    statFullyFunded.innerHTML = `<strong>${fullyFunded}</strong> Fully Funded`;
+    statUrgent.innerHTML      = `<strong>${urgent}</strong> Closing Soon`;
+  }
+
+  /* ── Match score calculation ────────────────────────────────────── */
+  function computeMatchScores(profile, scholarships) {
+    const scores = {};
+    scholarships.forEach(s => {
+      const parts = [];
+      let score = 0;
+
+      // CGPA — 35 pts
+      const cgpaGap = s.minCGPA - profile.cgpa;
+      if (cgpaGap <= 0) {
+        score += 35;
+        parts.push('✅ CGPA matches');
+      } else if (cgpaGap <= 0.5) {
+        score += 18;
+        parts.push('⚠️ CGPA close (gap ' + cgpaGap.toFixed(1) + ')');
+      } else {
+        parts.push('❌ CGPA too low (need ' + s.minCGPA + ')');
+      }
+
+      // Degree — 35 pts
+      const degreeMatch = profile.degree === '' ||
+        s.degree.toLowerCase().includes(profile.degree.toLowerCase());
+      if (degreeMatch) {
+        score += 35;
+        parts.push('✅ Degree matches');
+      } else {
+        parts.push('❌ Degree mismatch');
+      }
+
+      // Country preference — 15 pts
+      const countryOk = !profile.countryPref || profile.countryPref === '' ||
+        s.country === profile.countryPref || s.country === 'Multiple';
+      if (countryOk) {
+        score += 15;
+        if (profile.countryPref) parts.push('✅ Country matches');
+      } else {
+        parts.push('❌ Country mismatch');
+      }
+
+      // Province — 15 pts
+      const provOk = !profile.province ||
+        s.province === 'All Pakistan' ||
+        s.province.toLowerCase().includes(profile.province.toLowerCase());
+      if (provOk) {
+        score += 15;
+        if (profile.province) parts.push('✅ Province eligible');
+      } else {
+        parts.push('❌ Province mismatch');
+      }
+
+      scores[s.name] = { score, reason: parts.join(' · ') };
+    });
+    return scores;
+  }
+
+  /* ── Event listeners ────────────────────────────────────────────── */
+  searchInput.addEventListener('input', () => {
+    clearBtn.style.display = searchInput.value ? 'block' : 'none';
+    applyFiltersAndSearch();
+  });
+
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    clearBtn.style.display = 'none';
+    applyFiltersAndSearch();
+  });
+
+  filterDegree.addEventListener('change', applyFiltersAndSearch);
+  filterCountry.addEventListener('change', applyFiltersAndSearch);
+  filterType.addEventListener('change', applyFiltersAndSearch);
+  filterCGPA.addEventListener('change', applyFiltersAndSearch);
+  sortSelect.addEventListener('change', applyFiltersAndSearch);
+  resetBtn.addEventListener('click', resetFilters);
+
+  savedFilterBtn.addEventListener('click', () => {
+    showSavedOnly = !showSavedOnly;
+    updateSavedButton();
+    applyFiltersAndSearch();
+  });
+
+  /* ── Scroll to top ──────────────────────────────────────────────── */
+  window.addEventListener('scroll', () => {
+    scrollTopBtn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+  }, { passive: true });
+
+  scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ── Eligibility Analyzer ───────────────────────────────────────── */
+  btnAnalyze.addEventListener('click', runAnalyzer);
+
+  function runAnalyzer() {
+    const cgpaRaw = document.getElementById('aCGPA').value;
+    const cgpaVal = parseFloat(cgpaRaw);
+    const cgpa    = (isNaN(cgpaVal) || cgpaRaw.trim() === '') ? 0 : cgpaVal;
+
+    if (!isNaN(cgpaVal) && cgpaRaw.trim() !== '' && (cgpaVal < 0 || cgpaVal > 4)) {
+      gapReport.style.display = 'block';
+      gapReport.innerHTML = '<div style="color:var(--red);font-weight:600;padding:0.5rem 0;">⚠ Please enter a CGPA between 0 and 4.</div>';
+      return;
+    }
+
+    const profile = {
+      cgpa,
+      degree:        document.getElementById('aDegree').value,
+      province:      document.getElementById('aProvince').value.trim(),
+      countryPref:   document.getElementById('aCountry').value,
+      fieldOfStudy:  document.getElementById('aField').value.trim(),
+      financialNeed: document.getElementById('aFinancial').checked
+    };
+
+    // Compute + store match scores, switch sort, re-render grid
+    matchScores = computeMatchScores(profile, allScholarships);
+    sortSelect.value = 'match';
+    applyFiltersAndSearch();
+
+    // Render gap report
+    const gapResult = analyzeEligibility(profile, allScholarships);
+    renderGapReport(gapResult, profile);
+    gapReport.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function renderGapReport(gapResult, profile) {
+    const { qualified, close, notEligible } = gapResult;
+
+    let html = '<div class="report-intro">'
+      + 'Analysis for <strong>CGPA ' + profile.cgpa + '</strong>'
+      + (profile.degree ? ', <strong>' + escHtml(profile.degree) + '</strong>' : '')
+      + (profile.province ? ', ' + escHtml(profile.province) : '')
+      + (profile.countryPref ? ' → ' + escHtml(profile.countryPref) : '')
+      + (profile.fieldOfStudy ? ' · Field: ' + escHtml(profile.fieldOfStudy) : '')
+      + (profile.financialNeed ? ' · Financial need ✓' : '')
+      + '</div>';
+
+    html += buildReportSection('You Qualify', 'dot-green', qualified, 'report-item-qualified', 'qualify');
+    html += buildReportSection('Close Match (CGPA gap ≤ 0.5)', 'dot-amber', close, 'report-item-close', 'close');
+    html += buildReportSection('Not Eligible', 'dot-red', notEligible, 'report-item-no', 'gap');
+
+    if (qualified.length + close.length + notEligible.length === 0) {
+      html += '<p style="color:var(--muted);text-align:center;padding:1rem 0">No scholarships to analyze. Please load scholarship data first.</p>';
+    }
+
+    gapReport.style.display = 'block';
+    gapReport.innerHTML = html;
+  }
+
+  function buildReportSection(title, dotClass, items, itemClass, noteType) {
+    if (items.length === 0) return '';
+    let html = '<div class="report-section">'
+      + '<div class="report-section-title">'
+      + '<span class="dot ' + dotClass + '"></span>'
+      + escHtml(title) + ' <span style="color:var(--muted);font-weight:400;font-size:.85rem">(' + items.length + ')</span>'
+      + '</div><div class="report-list">';
+
+    items.forEach(function(item) {
+      const s       = item.scholarship;
+      const cgpaGap = item.cgpaGap;
+      const gapNote = item.gapNote;
+      const ms      = matchScores[s.name];
+
+      html += '<div class="report-item ' + itemClass + '">'
+        + '<strong>' + escHtml(s.name) + '</strong>'
+        + '<span class="meta">' + escHtml(s.provider) + ' · ' + escHtml(s.country) + ' · ' + escHtml(s.degree) + ' · Min CGPA: ' + s.minCGPA + '</span>';
+
+      if (ms) {
+        const scoreColor = ms.score >= 70 ? 'var(--green)' : ms.score >= 40 ? 'var(--amber)' : 'var(--red)';
+        html += '<span style="font-size:.8rem;font-weight:700;color:' + scoreColor + ';margin:.1rem 0">Match: ' + ms.score + '% — ' + ms.reason + '</span>';
+      }
+
+      if (noteType === 'qualify') {
+        html += '<span class="qualify-note">✓ You meet the requirements — deadline: ' + escHtml(s.deadline) + '</span>';
+      } else if (gapNote) {
+        const noteClass = noteType === 'close' ? 'close-note' : 'gap-note';
+        const prefix    = noteType === 'close' ? '⚡' : '✗';
+        gapNote.split('\n').forEach(function(line) {
+          if (line.trim()) {
+            html += '<span class="' + noteClass + '">' + prefix + ' ' + escHtml(line.trim()) + '</span>';
+          }
+        });
+      }
+
+      html += '<span class="meta" style="margin-top:.1rem">Deadline: ' + escHtml(s.deadline) + ' · Funding: ' + escHtml(s.funding) + '</span>'
+        + '<a href="' + escHtml(s.link) + '" target="_blank" rel="noopener noreferrer" style="color:var(--blue-lite);font-size:.78rem;font-weight:600;text-decoration:none;margin-top:.15rem">View Scholarship ↗</a>'
+        + '</div>';
+    });
+
+    html += '</div></div>';
+    return html;
+  }
+
+  /* ── Fetch data ─────────────────────────────────────────────────── */
+  fetch('./scholarships.json')
+    .then(function(res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    })
+    .then(function(data) {
+      loadingState.style.display = 'none';
+      allScholarships = data;
+      populateFilters(data);
+      updateHeaderStats(allScholarships);
+      updateSavedButton();
+      applyFiltersAndSearch();
+    })
+    .catch(function(err) {
+      console.error('Failed to load scholarships.json:', err);
+      loadingState.style.display = 'none';
+      errorState.style.display   = 'block';
+    });
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "careerpath-scholarship-finder",
+  "version": "1.0.0",
+  "description": "CareerPath Scholarship Finder — property-based and unit tests",
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  },
+  "devDependencies": {
+    "fast-check": "^3.22.0"
+  }
+}

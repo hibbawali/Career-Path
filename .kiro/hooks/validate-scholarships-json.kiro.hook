@@ -1,0 +1,18 @@
+{
+  "enabled": true,
+  "name": "Validate Scholarships JSON",
+  "description": "Whenever scholarships.json is saved, checks that every entry has all required fields: name, country, provider, degree, minCGPA, deadline, funding, link, status, type, province. Lists any incomplete entries.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "scholarships.json"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "The file scholarships.json was just saved. Read the file and validate that every entry contains all of the following required fields: name, country, provider, degree, minCGPA, deadline, funding, link, status, type, province. If any entries are missing one or more of these fields, list the incomplete entries by name (or index if name is missing) and specify which fields are absent. If all entries are complete, confirm that validation passed."
+  },
+  "workspaceFolderName": "CareerPath",
+  "shortName": "validate-scholarships-json"
+}
